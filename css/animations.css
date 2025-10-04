@@ -1,0 +1,334 @@
+/* Enhanced Animations with Smoother Transitions */
+
+/* Base Animations */
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.98);
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px) scale(0.95);
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(50px) scale(0.95);
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes slideInSlowRight {
+    0% {
+        opacity: 0;
+        transform: translateX(120px) scale(0.98);
+    }
+    20% {
+        opacity: 0.2;
+    }
+    60% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+/* Cybersecurity-themed animations */
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 5px rgba(0, 255, 170, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0, 255, 170, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(0, 255, 170, 0.2);
+    }
+}
+
+@keyframes scanLine {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 0% 100%;
+    }
+}
+
+/* Smooth Transition Classes */
+.animate-fadeup {
+    animation: fadeUp 1s cubic-bezier(0.215, 0.61, 0.355, 1) forwards !important;
+    opacity: 1 !important; /* Ensure items stay visible */
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transform: translateZ(0); /* Force GPU acceleration */
+}
+
+.animate-fadein {
+    animation: fadeIn 1.2s cubic-bezier(0.215, 0.61, 0.355, 1) forwards !important;
+    opacity: 1 !important;
+    will-change: opacity;
+}
+
+.animate-slideinleft {
+    animation: slideInLeft 1s cubic-bezier(0.215, 0.61, 0.355, 1) forwards !important;
+    opacity: 1 !important;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+.animate-slideinright {
+    animation: slideInRight 1s cubic-bezier(0.215, 0.61, 0.355, 1) forwards !important;
+    opacity: 1 !important;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+.animate-slideinright-slow {
+    animation: slideInSlowRight 2s cubic-bezier(0.19, 1, 0.22, 1) forwards !important;
+    opacity: 1 !important;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+/* Enhanced Section Transitions */
+section {
+    position: relative;
+    z-index: 1;
+    transition: background-color 0.5s ease;
+}
+
+/* Smooth Scrolling for the entire page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Hover effect transitions */
+.skill-card, .project-card, .cert-card, .achievement-card, .contact-card {
+    transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) !important;
+    transform: translateZ(0);
+}
+
+/* Remove animation from carousel containers to allow JS control */
+.projects-content, .certifications-content, .achievements-content {
+    animation: none !important;
+}
+
+/* Enhanced hover effects */
+.project-card:hover, .cert-card:hover, .achievement-card:hover {
+    animation: pulseGlow 2s infinite;
+}
+
+/* Additional Animation Classes */
+.fade-in-slow {
+    animation: fadeIn 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+}
+
+.fade-in-fast {
+    animation: fadeIn 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+}
+
+/* Interactive effect classes */
+.cyber-glow {
+    box-shadow: 0 0 10px rgba(0, 255, 170, 0.3);
+    transition: box-shadow 0.5s ease;
+}
+
+.cyber-glow:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 170, 0.5), 0 0 40px rgba(0, 255, 170, 0.2);
+}
+
+/* Staggered Animation Delays */
+.delay-100 { animation-delay: 0.1s !important; }
+.delay-200 { animation-delay: 0.2s !important; }
+.delay-300 { animation-delay: 0.3s !important; }
+.delay-400 { animation-delay: 0.4s !important; }
+.delay-500 { animation-delay: 0.5s !important; }
+
+/* Ensure GPU acceleration for smoother animations */
+.gpu-accelerated {
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+/* Smooth hover transitions for all interactive elements */
+a, button, .card, .skill-card, .cert-card, 
+.achievement-card, .contact-card, .nav-links li a {
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) !important;
+}
+
+/* Project train animation - circular effect */
+:root {
+    --project-train-width: 2000px; /* Default value, will be dynamically updated */
+    --cert-train-width: 2000px; /* Default value, will be dynamically updated */
+    --achievement-train-width: 2000px; /* Default value, will be dynamically updated */
+}
+
+@keyframes projectTrain {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-1 * var(--project-train-width)));
+    }
+}
+
+.projects-content {
+    animation: projectTrain 120s linear infinite; /* Longer duration for smoother movement */
+    width: max-content;
+    padding: 0;
+    margin: 0;
+}
+
+/* Pause animation on hover */
+.project-train-container:hover .projects-content,
+.cert-train-container:hover .certifications-content,
+.achievement-train-container:hover .achievements-content {
+    animation-play-state: paused;
+}
+
+/* Make sure cards are visible during animation */
+.project-train-container .project-card,
+.cert-train-container .cert-card,
+.achievement-train-container .achievement-card {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Certification train animation - circular effect */
+@keyframes certTrain {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-1 * var(--cert-train-width)));
+    }
+}
+
+.certifications-content {
+    animation: certTrain 100s linear infinite; /* Slightly different speed for variety */
+    width: max-content;
+    padding: 0;
+    margin: 0;
+}
+
+/* Achievement train animation - circular effect */
+@keyframes achievementTrain {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-1 * var(--achievement-train-width)));
+    }
+}
+
+.achievements-content {
+    animation: achievementTrain 110s linear infinite; /* Another slightly different speed */
+    width: max-content;
+    padding: 0;
+    margin: 0;
+}
+
+/* Special hover effect for project cards */
+.project-card:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+    border-color: var(--primary-color) !important;
+}
+
+/* Special hover effect for achievement cards */
+.achievement-card {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: calc(var(--card-index, 0) * 1s);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+/* Map animations */
+@keyframes mapPulse {
+    0%, 100% { box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 0 0 rgba(0, 230, 118, 0.2); }
+    50% { box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 230, 118, 0.3); }
+}
+
+.map-container {
+    animation: mapPulse 4s ease-in-out infinite;
+}
+
+.achievement-card:hover {
+    animation-play-state: paused;
+    transform: translateY(-10px) scale(1.03) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 230, 118, 0.2) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.achievement-card:hover .achievement-icon {
+    animation: spin 8s linear infinite !important;
+}
+
+@keyframes spin {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+}
+
+/* Optimize animations for better performance */
+* {
+    backface-visibility: hidden;
+}
+
+/* Fix for scroll animations to prevent vanishing elements */
+.animate-fadeup, .animate-fadein, .animate-slideinleft, .animate-slideinright, 
+.animate-slideinright-slow, .always-visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Custom styling for the slow right-to-left animation */
+.animate-slideinright-slow {
+    animation: slideInSlowRight 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards !important;
+    animation-delay: calc(var(--item-index, 0) * 0.2s) !important;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}

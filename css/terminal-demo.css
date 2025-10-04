@@ -1,0 +1,214 @@
+/* Interactive Terminal Demo Styles */
+
+.terminal-demo-container {
+    margin: 50px auto;
+    max-width: 800px;
+    background: var(--terminal-bg);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.terminal-demo-header {
+    background: rgba(30, 30, 40, 0.95);
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.terminal-demo-title {
+    color: #aaaaaa;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.terminal-demo-title i {
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+.terminal-window-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.terminal-control {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.terminal-control.close {
+    background-color: #ff5f56;
+}
+
+.terminal-control.minimize {
+    background-color: #ffbd2e;
+}
+
+.terminal-control.expand {
+    background-color: #27c93f;
+}
+
+.terminal-demo-content {
+    flex: 1;
+    padding: 15px;
+    font-family: 'Courier New', monospace;
+    color: var(--terminal-color);
+    font-size: 14px;
+    overflow-y: auto;
+    background-color: var(--terminal-bg);
+    position: relative;
+}
+
+.terminal-output {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.terminal-input-line {
+    display: flex;
+    margin: 5px 0;
+}
+
+.terminal-prompt {
+    color: var(--primary-color);
+    margin-right: 8px;
+}
+
+.terminal-input {
+    background: transparent;
+    border: none;
+    color: var(--terminal-color);
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    flex: 1;
+    caret-color: var(--terminal-color);
+    outline: none;
+}
+
+/* Blinking cursor effect */
+.cursor {
+    display: inline-block;
+    width: 8px;
+    height: 15px;
+    background-color: var(--terminal-color);
+    animation: blink 1s step-start infinite;
+    margin-left: 2px;
+    vertical-align: middle;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Terminal command suggestions */
+.terminal-suggestions {
+    display: none;
+    position: absolute;
+    bottom: 60px;
+    left: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 10;
+}
+
+.terminal-suggestions.show {
+    display: block;
+}
+
+.suggestion {
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.suggestion:hover {
+    background: rgba(0, 230, 118, 0.2);
+}
+
+.suggestion-command {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.suggestion-description {
+    color: #aaa;
+    font-size: 12px;
+    margin-left: 15px;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+    .terminal-demo-container {
+        height: 350px;
+        margin: 30px 15px;
+    }
+}
+
+/* Light theme adjustments */
+body.light-theme .terminal-demo-container {
+    background: #f0f0f0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .terminal-demo-header {
+    background: #e5e5e5;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.light-theme .terminal-demo-content {
+    background-color: #f0f0f0;
+}
+
+body.light-theme .terminal-output, 
+body.light-theme .terminal-input {
+    color: #006600;
+}
+
+body.light-theme .cursor {
+    background-color: #006600;
+}
+
+body.light-theme .terminal-suggestions {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--primary-color);
+}
+
+/* Terminal effects */
+.terminal-glitch {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.05;
+    background-image: repeating-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+}

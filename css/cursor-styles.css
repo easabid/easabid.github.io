@@ -1,0 +1,58 @@
+/* Custom cursor styles for all carousel sections */
+
+/* Projects Section */
+.projects-content {
+    cursor: none; /* Hide default cursor */
+}
+
+/* Certifications Section */
+.certifications-content {
+    cursor: none; /* Hide default cursor */
+}
+
+/* Achievements Section */
+.achievements-content {
+    cursor: none; /* Hide default cursor */
+}
+
+/* Skills Section */
+.skills-grid {
+    cursor: none; /* Hide default cursor when hovering over skills */
+}
+
+/* Custom cursor indicator - shared by all sections */
+.custom-cursor-indicator {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    pointer-events: none;
+    z-index: 1000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.cursor-arrow {
+    width: 30px;
+    height: 30px;
+    background-color: rgba(0, 230, 118, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    box-shadow: 0 0 10px rgba(0, 230, 118, 0.5);
+    animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
